@@ -50,6 +50,12 @@ class ScriptWriterAgent:
             f"Language: {req.language}\n"
             f"Tone: {req.tone}\n"
         )
+        if req.research_notes:
+            user_prompt += (
+                f"\nGround the script in this verified research — do not "
+                f"contradict it, and clearly favor verified facts over "
+                f"speculation:\n{req.research_notes}\n"
+            )
 
         completion = self.client.chat.completions.create(
             model=settings.openai_model,
