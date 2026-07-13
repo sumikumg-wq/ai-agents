@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.routers import agents
+from app.core.database import Base, engine
+from app.routers import agents, auth, projects
+from app.models import db_models  # noqa: F401  (ensures models are registered before create_all)
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title=settings.app_name,
@@ -18,6 +22,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(auth.router)
+app.include_router(projects.router)
 app.include_router(agents.router)
 
 

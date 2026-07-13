@@ -18,6 +18,8 @@ class Settings(BaseSettings):
 
     database_url: str = "sqlite:///./chronicle.db"
 
+    jwt_secret_key: str = "dev-secret-change-me-in-production"
+
     cors_origins: list[str] = ["http://localhost:5173"]
 
     class Config:

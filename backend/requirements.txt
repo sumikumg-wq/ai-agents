@@ -6,3 +6,11 @@ pydantic-settings==2.5.2
 python-dotenv==1.0.1
 openai==1.51.0
 python-multipart==0.0.9
+edge-tts==6.1.19
+requests==2.32.3
+Pillow==10.4.0
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+google-api-python-client==2.149.0
+google-auth==2.35.0
+google-auth-oauthlib==1.2.1
