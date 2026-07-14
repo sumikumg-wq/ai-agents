@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../lib/api.js";
 
 const LENGTHS = ["30s", "60s", "5min", "10min"];
 const STAGES = [
@@ -20,7 +20,7 @@ export default function CreateVideo() {
     setError("");
     setResult(null);
     try {
-      const { data } = await axios.post("/api/agents/script", {
+      const { data } = await api.post("/agents/script", {
         topic,
         length,
       });
